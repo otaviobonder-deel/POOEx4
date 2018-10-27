@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,12 +18,14 @@ public class Venda {
     @Override
     public String toString() {
         String x = "";
+        String nota = "";
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/LLLL/yyyy");
         double total = 0;
         for (String quantidade : venda.keySet()) {
             x = x + "\n" + "Produto: " + Loja.produtos.get(quantidade).getNome() + ",   Quantidade: " + venda.get(quantidade) + ",  Preço Unitário: " + Loja.produtos.get(quantidade).getPreco() + ",   Subtotal: " + Loja.produtos.get(quantidade).getPreco()*venda.get(quantidade);
             total = total + (Loja.produtos.get(quantidade).getPreco()*venda.get(quantidade));
         }
-        x = x + "\nTotal da Compra: " + total;
-        return x;
+        nota = "Olá! Hoje é dia "+ LocalDate.now().format(formatter) + "\n" + "Aqui está a lista dos seus produtos comprados:\n" + x + "\nTotal da Compra: " + total;
+        return nota;
     }
 }
