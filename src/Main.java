@@ -7,10 +7,10 @@ public class Main {
         Produto mouse = new Produto(4, "Mouse", 25);
 
         Loja n = new Loja();
-        n.add(bola);
-        n.add(patinete);
-        n.add(computador);
-        n.add(mouse);
+        n.add(String.valueOf(bola.getCodigo()), bola);
+        n.add(String.valueOf(patinete.getCodigo()), patinete);
+        n.add(String.valueOf(computador.getCodigo()), computador);
+        n.add(String.valueOf(mouse.getCodigo()), mouse);
 
         String[] vendas = {"3", "2", "3", "3"};
 

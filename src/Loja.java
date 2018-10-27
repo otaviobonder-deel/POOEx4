@@ -1,12 +1,16 @@
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Loja {
 
-    private ArrayList<Produto> produtos = new ArrayList<>();
+    public static Map<String, Produto> produtos = new HashMap<>();
 
     public Loja() {
     }
-    public void add(Produto produto) {
-        produtos.add(produto);
+    public void add(String codigo, Produto produto) {
+        produtos.put(codigo, produto);
     }
+
+
 }

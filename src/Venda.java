@@ -3,10 +3,8 @@ import java.util.Map;
 
 public class Venda {
     private Map<String, Integer> venda = new HashMap<>();
-    private Map<String, Produto> produtos = new HashMap<>();
     public Venda(String[] codigos) {
         for (String codigo : codigos){
-            produtos.put(codigo, Produto())
             if (!venda.containsKey(codigo)){
                 venda.put(codigo,1);
             } else {
@@ -18,9 +16,12 @@ public class Venda {
     @Override
     public String toString() {
         String x = "";
+        double total = 0;
         for (String quantidade : venda.keySet()) {
-            x = x + "\n" + "Código: " + quantidade + " Quantidade: " + venda.get(quantidade) + " Preço: ";
+            x = x + "\n" + "Produto: " + Loja.produtos.get(quantidade).getNome() + ", Quantidade: " + venda.get(quantidade) + ", Preço Unitário: " + Loja.produtos.get(quantidade).getPreco() + ", Subtotal: " + Loja.produtos.get(quantidade).getPreco()*venda.get(quantidade);
+            total = total + (Loja.produtos.get(quantidade).getPreco()*venda.get(quantidade));
         }
+        x = x + "\nTotal da Compra: " + total;
         return x;
     }
 }
