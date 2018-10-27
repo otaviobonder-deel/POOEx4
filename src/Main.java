@@ -12,7 +12,7 @@ public class Main {
         n.add(String.valueOf(computador.getCodigo()), computador);
         n.add(String.valueOf(mouse.getCodigo()), mouse);
 
-        String[] vendas = {"3", "2", "3", "3"};
+        String[] vendas = {"3", "2", "3", "3", "4", "3", "4", "1", "1"};
 
         Venda venda1 = new Venda(vendas);
 
